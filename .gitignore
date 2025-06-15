@@ -1,3 +1,7 @@
+# Ignore compiled binary
+main
+test
+
 # Prerequisites
 *.d
 
