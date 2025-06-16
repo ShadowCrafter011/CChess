@@ -1,6 +1,5 @@
-# Ignore compiled binary
-main
-test
+# Ignore build directory
+build/
 
 # Prerequisites
 *.d
