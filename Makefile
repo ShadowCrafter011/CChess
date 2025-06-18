@@ -1,8 +1,8 @@
 CC := gcc
 CFLAGS := -Wall -Wextra -std=c99 -Iinclude -Itest/include -Itest/munit
 
-SRC := src/board.c src/fen.c src/uci.c src/piece.c
-TEST_SRC := test/test.c test/munit/munit.c test/src/test_fen.c test/src/test_board.c
+SRC := src/board.c src/fen.c src/uci.c src/piece.c src/perft.c src/moves.c src/list.c
+TEST_SRC := test/test.c test/munit/munit.c test/src/test_fen.c test/src/test_board.c test/src/test_moves.c test/src/test_list.c
 TEST_OBJS := $(TEST_SRC:.c=.o)
 BUILD_DIR := build
 

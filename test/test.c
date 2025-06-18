@@ -2,6 +2,8 @@
 #include "munit.h"
 #include "test_fen.h"
 #include "test_board.h"
+#include "test_list.h"
+#include "test_moves.h"
 
 static MunitTest fen_tests[] = {
     { "/test-fen-1", test_fen_1, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
@@ -17,9 +19,21 @@ static MunitTest board_tests[] = {
     { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
 };
 
+static MunitTest list_tests[] = {
+    { "/test-list", test_list, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
+};
+
+static MunitTest moves_tests[] = {
+    { "/test-startpos-perft", test_startpos_perft, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
+};
+
 static MunitSuite suites[] = {
     { "/fen", fen_tests, NULL, 1, MUNIT_SUITE_OPTION_NONE },
     { "/board", board_tests, NULL, 1, MUNIT_SUITE_OPTION_NONE },
+    { "/list", list_tests, NULL, 1, MUNIT_SUITE_OPTION_NONE },
+    { "/moves", moves_tests, NULL, 1, MUNIT_SUITE_OPTION_NONE },
     { NULL }
 };
 
