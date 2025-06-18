@@ -1,36 +1,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "board.h"
 #include "piece.h"
 
 int create_board(ChessBoard *board)
 {
-    board->tiles = malloc(8 * 8 * sizeof(int));
-    board->castling = malloc(4 * sizeof(char));
-
-    for (int i = 0; i < 64; i++)
-    {
-        board->tiles[i] = 0;
-    }
-
-    for (int i = 0; i < 4; i++)
-    {
-        board->castling[i] = '-';
-    }
+    memset(board->tiles, 0, sizeof(board->tiles));
+    memset(board->castling, '-', sizeof(board->castling));
 
     board->active_color = 'b';
     board->en_passant_target = -1;
     board->half_move_clock = 0;
     board->full_move_clock = 0;
-    return 0;
-}
-
-int destruct_board(struct ChessBoard *board)
-{
-    free(board->tiles);
-    free(board->castling);
-    board->tiles = NULL;
-    board->castling = NULL;
     return 0;
 }
 

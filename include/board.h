@@ -5,8 +5,8 @@
 
 typedef struct ChessBoard
 {
-    int *tiles;
-    char *castling;
+    int tiles[64];
+    char castling[4];
     char active_color;
     int en_passant_target;
     int half_move_clock;
@@ -14,8 +14,6 @@ typedef struct ChessBoard
 } ChessBoard;
 
 int create_board(struct ChessBoard *board);
-
-int destruct_board(struct ChessBoard *board);
 
 int algebraic_to_index(const char *algebraic, int *index);
 
