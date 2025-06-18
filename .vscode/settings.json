@@ -6,7 +6,8 @@
         "stdlib.h": "c",
         "minunit.h": "c",
         "board.h": "c",
-        "inttypes.h": "c"
+        "inttypes.h": "c",
+        "cstdlib": "c"
     },
     "C_Cpp.default.includePath": [
         "include",

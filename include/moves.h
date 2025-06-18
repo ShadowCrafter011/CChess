@@ -9,6 +9,6 @@ typedef struct Move {
     int end_index;
 } Move;
 
-List generate_moves(ChessBoard *board);
+void generate_moves(ChessBoard *board, List *list);
 
 #endif
