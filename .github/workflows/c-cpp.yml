@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: initialize submodules
-      run: git submodule sync --recursive
+      run: git submodule update --init --recursive
     - name: test
       run: make test
