@@ -1,45 +1,34 @@
 #include "piece.h"
 
-int char_to_chess_piece(const char *piece_char, int *out)
+int char_to_chess_piece(const char *piece_char)
 {
     switch (*piece_char)
     {
-        case 'p':
-            *out = BLACK_PAWN;
-            break;
-        case 'n':
-            *out = BLACK_KNIGHT;
-            break;
-        case 'b':
-            *out = BLACK_BISHOP;
-            break;
-        case 'r':
-            *out = BLACK_ROOK;
-            break;
-        case 'q':
-            *out = BLACK_QUEEN;
-            break;
-        case 'k':
-            *out = BLACK_KING;
-            break;
-        case 'P':
-            *out = WHITE_PAWN;
-            break;
-        case 'N':
-            *out = WHITE_KNIGHT;
-            break;
-        case 'B':
-            *out = WHITE_BISHOP;
-            break;
-        case 'R':
-            *out = WHITE_ROOK;
-            break;
-        case 'Q':
-            *out = WHITE_QUEEN;
-            break;
-        case 'K':
-            *out = WHITE_KING;
-            break;
+    case 'p':
+        return BLACK_PAWN;
+    case 'n':
+        return BLACK_KNIGHT;
+    case 'b':
+        return BLACK_BISHOP;
+    case 'r':
+        return BLACK_ROOK;
+    case 'q':
+        return BLACK_QUEEN;
+    case 'k':
+        return BLACK_KING;
+    case 'P':
+        return WHITE_PAWN;
+    case 'N':
+        return WHITE_KNIGHT;
+    case 'B':
+        return WHITE_BISHOP;
+    case 'R':
+        return WHITE_ROOK;
+    case 'Q':
+        return WHITE_QUEEN;
+    case 'K':
+        return WHITE_KING;
+    default:
+        return -1;
     }
-    return 0;
 }

@@ -18,6 +18,6 @@ typedef enum ChessPiece
     BLACK_KING
 } ChessPiece;
 
-int char_to_chess_piece(const char *piece_char, int *out);
+int char_to_chess_piece(const char *piece_char);
 
 #endif
