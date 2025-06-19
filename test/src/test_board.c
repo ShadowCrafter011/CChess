@@ -21,14 +21,13 @@ MunitResult test_algebraic_to_index(const MunitParameter params[], void* data)
     (void) params;
     (void) data;
 
-    int index;
-    algebraic_to_index("a8", &index);
+    int index = algebraic_to_index("a8");
     munit_assert_int(index, ==, 0); // a8 is not converted to index 0
 
-    algebraic_to_index("h1", &index);
+    index = algebraic_to_index("h1");
     munit_assert_int(index, ==, 63); // h1 is not converted to index 63
 
-    algebraic_to_index("d6", &index);
+    index = algebraic_to_index("d6");
     munit_assert_int(index, ==, 19); // d6 is not converted to index 19
 
     return MUNIT_OK;

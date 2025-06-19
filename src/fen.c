@@ -65,9 +65,8 @@ int load_fen(struct ChessBoard *board, const char *fen)
             else
             {
                 rank = c;
-                int en_passant_index;
                 char en_passant[2] = {file, rank};
-                algebraic_to_index(en_passant, &en_passant_index);
+                int en_passant_index = algebraic_to_index(en_passant);
                 board->en_passant_target = en_passant_index;
             }
             break;

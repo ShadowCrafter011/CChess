@@ -6,6 +6,8 @@
 typedef struct ChessBoard
 {
     int tiles[64];
+    int piece_indices[64];
+    int next_piece_index;
     char castling[4];
     char active_color;
     int en_passant_target;
@@ -13,10 +15,10 @@ typedef struct ChessBoard
     int full_move_clock;
 } ChessBoard;
 
-int create_board(struct ChessBoard *board);
+void create_board(struct ChessBoard *board);
 
-int algebraic_to_index(const char *algebraic, int *index);
+int algebraic_to_index(const char *algebraic);
 
-int check_castling(struct ChessBoard *board, bool *white_king_castle, bool *white_queen_castle, bool *black_king_castle, bool *black_queen_castle);
+void check_castling(struct ChessBoard *board, bool *white_king_castle, bool *white_queen_castle, bool *black_king_castle, bool *black_queen_castle);
 
 #endif
