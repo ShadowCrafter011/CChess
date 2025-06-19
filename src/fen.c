@@ -2,15 +2,12 @@
 #include "fen.h"
 #include "piece.h"
 
-enum
-{
-    PIECE_PLACEMENT = 0,
-    ACTIVE_COLOR,
-    CASTLING_RIGHTS,
-    EN_PASSANT_TARGET,
-    HALFMOVE_CLOCK,
-    FULLMOVE_CLOCK
-};
+#define PIECE_PLACEMENT 0
+#define ACTIVE_COLOR 1
+#define CASTLING_RIGHTS 2
+#define EN_PASSANT_TARGET 3
+#define HALFMOVE_CLOCK 4
+#define FULLMOVE_CLOCK 5
 
 int load_fen(struct ChessBoard *board, const char *fen)
 {
