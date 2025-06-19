@@ -82,6 +82,18 @@ MunitResult test_start_fen(const MunitParameter params[], void* data)
     {
         munit_assert_int(board.tiles[i], ==, expected[i]); // Board does not match expected values for start fen
     }
+
+    int piece_index_expected[32] = {
+        BLACK_ROOK, BLACK_KNIGHT, BLACK_BISHOP, BLACK_QUEEN, BLACK_KING, BLACK_BISHOP, BLACK_KNIGHT, BLACK_ROOK,
+        BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN,
+        WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN,
+        WHITE_ROOK, WHITE_KNIGHT, WHITE_BISHOP, WHITE_QUEEN, WHITE_KING, WHITE_BISHOP, WHITE_KNIGHT, WHITE_ROOK
+    };
+
+    for (int i = 0; i < 32; i++)
+    {
+        munit_assert_int(board.tiles[board.piece_indices[i]], ==, piece_index_expected[i]); // Check that the piece index array was filled correctly
+    }
     
     return MUNIT_OK;
 }
@@ -113,6 +125,11 @@ MunitResult test_empty_fen(const MunitParameter params[], void* data)
     {
         munit_assert_int(board.tiles[i], ==, 0); // Value in empty chess board loaded by fen is not 0
     }
+    for (int i = 0; i < 32; i++)
+    {
+        munit_assert_int(board.piece_indices[i], ==, -1); // Check that the piece index array was initialized correctly
+    }
+    munit_assert_int(board.next_piece_index, ==, 0);
 
     return MUNIT_OK;
 }

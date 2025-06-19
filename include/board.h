@@ -6,7 +6,7 @@
 typedef struct ChessBoard
 {
     int tiles[64];
-    int piece_indices[64];
+    int piece_indices[32];
     int next_piece_index;
     char castling[4];
     char active_color;

@@ -47,6 +47,7 @@ int load_fen(struct ChessBoard *board, const char *fen)
             else
             {
                 int piece = char_to_chess_piece(&c);
+                board->piece_indices[board->next_piece_index++] = x;
                 board->tiles[x++] = piece;
             }
             break;
