@@ -17,7 +17,38 @@ void create_board(ChessBoard *board)
     board->full_move_clock = 0;
 }
 
-int algebraic_to_index(const char *algebraic)
+// Does not validate move use carefully!
+void play_move_indices(ChessBoard *board, int from_index, int to_index)
+{
+    bool remove_to_piece = board->tiles[to_index] != EMPTY;
+    int piece = board->tiles[from_index];
+    board->tiles[from_index] = EMPTY;
+    board->tiles[to_index] = piece;
+
+    // Update piece indices
+    for (int i = 0; i < board->next_piece_index; i++)
+    {
+        if (board->piece_indices[i] == from_index)
+        {
+            board->piece_indices[i] = to_index;
+        }
+        else if (board->piece_indices[i] == to_index && remove_to_piece)
+        {
+            // Put last piece index in place of to_index in piece_indices and indicate the array is shorter by 1
+            board->piece_indices[i] = board->piece_indices[board->next_piece_index - 1];
+            board->next_piece_index--;
+        }
+    }
+}
+
+void play_move_algebraic(ChessBoard *board, const char move[4])
+{
+    const char from[2] = { move[0], move[1] };
+    const char to[2] = { move[2], move[3] };
+    play_move_indices(board, algebraic_to_index(from), algebraic_to_index(to));
+}
+
+int algebraic_to_index(const char algebraic[2])
 {
     char file = *algebraic;
     char rank = algebraic[1];
