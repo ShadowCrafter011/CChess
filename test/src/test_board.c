@@ -70,11 +70,12 @@ MunitResult test_play_move(const MunitParameter params[], void* data)
     }
 
     // Three pieces were captured so we only care about the first 29 elements
+    // Captured pieces get replaced with the last element of the piece index array
     int piece_index_expected[29] = {
         BLACK_ROOK, BLACK_KNIGHT, BLACK_BISHOP, BLACK_QUEEN, BLACK_KING, BLACK_BISHOP, BLACK_KNIGHT, BLACK_ROOK,
-        BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN,
-        WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN,
-        WHITE_ROOK, WHITE_BISHOP, WHITE_QUEEN, WHITE_KING, WHITE_BISHOP, WHITE_KNIGHT, WHITE_ROOK
+        BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, WHITE_ROOK, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN, BLACK_PAWN,
+        WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN, WHITE_BISHOP, WHITE_PAWN, WHITE_PAWN, WHITE_PAWN,
+        WHITE_ROOK, WHITE_KNIGHT, WHITE_BISHOP, WHITE_QUEEN, WHITE_KING
     };
 
     for (int i = 0; i < 29; i++)
