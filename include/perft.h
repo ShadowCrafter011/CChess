@@ -3,6 +3,6 @@
 
 #include "board.h"
 
-int perft(ChessBoard *board, const char *fen, int depth);
+int perft(ChessBoard *board, int depth);
 
 #endif

@@ -7,7 +7,9 @@
         "minunit.h": "c",
         "board.h": "c",
         "inttypes.h": "c",
-        "cstdlib": "c"
+        "cstdlib": "c",
+        "moves.h": "c",
+        "perft.h": "c"
     },
     "C_Cpp.default.includePath": [
         "include",

@@ -21,6 +21,8 @@ typedef struct ChessBoard
 
 void create_board(ChessBoard *board);
 
+void copy_board(ChessBoard *original, ChessBoard *copy);
+
 void play_move_indices(ChessBoard *board, int from_index, int to_index);
 
 void play_move_algebraic(ChessBoard *board, const char move[4]);

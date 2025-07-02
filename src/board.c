@@ -41,6 +41,7 @@ void play_move_indices(ChessBoard *board, int from_index, int to_index)
     }
 }
 
+// Does not validate move use carefully!
 void play_move_algebraic(ChessBoard *board, const char move[4])
 {
     const char from[2] = { move[0], move[1] };
